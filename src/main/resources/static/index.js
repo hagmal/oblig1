@@ -1,29 +1,30 @@
 /* Lag en applikasjon som registrerer kjøp av kinobilletter.*/
-function velgFilm(){
-   //hvor skal den skrives ut til??
-   let film = document.getElementById("film").value;
-   // + noe som gjør at man ikke kan velge "velg film her"
-}
-function velgAntall() {
-   let antall = document.getElementById("antall").value;
-   // + noe som gjør at man ikke kan velge negative tall
+function registrerOpplysninger() {
+   const film = document.getElementById("film").value;
+
+   const innAntall = document.getElementById("antall").value;
+   const antall = Number(innAntall);
+
+   if (isNaN(antall) || antall <= 0) {
+      alert("Må skrive inn et positivt tall")
+   }
+   else {
+      // ????
+   }
+
+   const fornavn = document.getElementById("fornavn").value;
+   // + validering
+   const etternavn = document.getElementById("etternavn").value;
+   // + validering
+   const telefonnr = document.getElementById("telefonnr").value;
+   // + validering
+   const epost = document.getElementById("epost").value;
+   // + validering
 }
 /* Etter at knappen "kjøp billett" er trykket skal billetten lagres som et objekt i array.*/
-const filmRegister = [];
-
-function register(){
-   //lage array
-   const kjøp = {
-      film : film,
-      antall : antall,
-      // ++++
-   }
-}
 
 /* Arrayet listes ut under "Alle billetter".*/
-function visFilmRegister(){
-   //???? for å få ut arrayet
-}
+
 /* Etter at det er registrert en bestilling, skal alle inputfelt "blankes" slik at
 ny billett kan registreres.*/
 

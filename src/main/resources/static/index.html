@@ -6,22 +6,31 @@
     <script type = "application/javascript" src="index.js"></script>
 </head>
 <body>
-<h1> Bestilling av kinobilletter </h1>
+    <h1> Bestilling av kinobilletter </h1>
 
-<section>
-    <label for="film"> Velg film: </label>
-    <select id="film" onchange="velgFilm()">
-        <option disabled selected> Velg film her </option>
-        <option> Wonka </option>
-        <option> Mean girls </option>
-        <option> Napoleon </option>
-    </select>
-</section>
-
-<section>
-    <label for="antall"> Antall </label>
-    <input type="number" id="antall" onchange="velgAntall()">
-</section>
+    <section>
+        <label for="film"> Velg film: </label>
+        <select id="film" onchange="velgFilm()">
+            <option disabled selected> Velg film her </option>
+            <option> Wonka </option>
+            <option> Mean girls </option>
+            <option> Napoleon </option>
+        </select>
+    </section>
+    <br>
+    <section>
+        <label for="antall"> Antall </label>
+        <input type="text" id="antall" onchange="velgAntall()">
+        <div id="feilmelding"> </div>
+    </section>
+<br>
+    <table>
+        <tr><td> Fornavn </td><td><input type="text" id="fornavn"/></td></tr>
+        <tr><td> Etternavn </td><td><input type="text" id="etternavn"/></td></tr>
+        <tr><td> Telefonnr </td><td><input type="text" id="telefonnr"/></td></tr>
+        <tr><td> E-post </td><td><input type="text" id="epost"></td></tr>
+        <!-- +"kjøp billett"-knapp -->
+    </table>
 
 </body>
 </html>
