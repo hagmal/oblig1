@@ -1,17 +1,10 @@
-/* Lag en applikasjon som registrerer kjøp av kinobilletter.*/
-function registrerOpplysninger() {
+// oppretter et tomt array for å lagre billettene
+const billetter = [];
+
+function registrerBillett() {
    const film = document.getElementById("film").value;
-
-   const innAntall = document.getElementById("antall").value;
-   const antall = Number(innAntall);
-
-   if (isNaN(antall) || antall <= 0) {
-      alert("Må skrive inn et positivt tall")
-   }
-   else {
-      // ????
-   }
-
+   const antall = Number(document.getElementById("antall").value);
+   // + validering
    const fornavn = document.getElementById("fornavn").value;
    // + validering
    const etternavn = document.getElementById("etternavn").value;
@@ -20,15 +13,47 @@ function registrerOpplysninger() {
    // + validering
    const epost = document.getElementById("epost").value;
    // + validering
+
+   // Legger billettene inn i et array
+   const enBillett = {
+      film : film,
+      antall : antall,
+      fornavn : fornavn,
+      etternavn : etternavn,
+      telefonnr : telefonnr,
+      epost : epost
+   };
+   billetter.push(enBillett);
+   visBilletter()
+
+   // Nullstiller input-feltene
+   document.getElementById("film").value="";
+   document.getElementById("antall").value="";
+   document.getElementById("fornavn").value="";
+   document.getElementById("etternavn").value="";
+   document.getElementById("telefonnr").value="";
+   document.getElementById("epost").value="";
 }
-/* Etter at knappen "kjøp billett" er trykket skal billetten lagres som et objekt i array.*/
 
-/* Arrayet listes ut under "Alle billetter".*/
+// Hvordan arrayet listes ut under "Alle billetter"
+function visBilletter(){
+   let ut = "<table><tr>" +
+       "<th> Film </th> <th> Antall </th> <th> Fornavn </th> " +
+       "<th> Etternavn </th> <th> Telefonnr </th> " +
+       "<th> E-post </th></tr>";
+   for (let b of billetter) {
+      ut += "<tr>";
+      ut += "<td>" + b.film + "</td><td>" + b.antall
+          + "</td><td>" + b.fornavn + "</td><td>" + b.etternavn + "</td><td>"
+          + b.telefonnr + "</td><td>" + b.epost +"</td>";
+   }
+   document.getElementById("billetter").innerHTML = ut;
+}
 
-/* Etter at det er registrert en bestilling, skal alle inputfelt "blankes" slik at
-ny billett kan registreres.*/
+// Tømmer arrayet når man trykker på knappen "Slett alle billettene"
+function slettBilletter(){
+   billetter.length = 0;
+   visBilletter();
+}
 
-/* Knappen "Slett alle billettene" skal slette billettene (tømme arrayet).*/
-
-/* Det skal også lages en input-validering som sjekker at alle inputfeltene inneholder noe.*/
 
